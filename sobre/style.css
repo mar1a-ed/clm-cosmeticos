@@ -6,6 +6,17 @@ body{
     box-sizing: border-box;
 }
 
+.iconLogo img{
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.img-logo{
+    mix-blend-mode: multiply;
+}
+
 /* Seçao principal */
 #Sobre{
     display: flex;

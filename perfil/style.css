@@ -3,6 +3,14 @@
     box-sizing: border-box;
 }
 
+
+.iconLogo img{
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
 .perfil-section{
     padding: 60px 5%;
     display: flex;

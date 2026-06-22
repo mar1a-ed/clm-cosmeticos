@@ -32,6 +32,10 @@ body {
     border-radius: 10px;
 }
 
+.img-logo{
+    mix-blend-mode: multiply;
+}
+
 .navbar nav ul {
     list-style: none;
     display: flex;

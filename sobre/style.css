@@ -1,42 +1,48 @@
+*{
+    box-sizing: border-box;
+}
+
 body{
     margin: 0;
+    padding: 0;
     background-image: linear-gradient(135deg, #dea8b1 0%, #f4d3d8 100%);
     font-family: 'Montserrat', sans-serif;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 /* Seçao principal */
 #Sobre{
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 60px;
-    padding: 60px 80px;
+    padding: 60px 5%;
     background: transparent;
 }
 
 #Sobre img{
     width: 55%;
+    height: auto;
     border-radius: 15px;
     object-fit: cover;
-
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     animation: float 3s ease-in-out infinite;
 }
 
 .texto{
     flex: 1;
+    max-width: 600px;
 }
 
 h1{
     font-family: 'Playfair Display', serif;
-    font-size: 48px;
+    
+    font-size: clamp(2rem, 5vw, 3rem);
     color: #333;
     margin-bottom: 20px;
 }
 
 .texto p{
-    font-size: 18px;
+    font-size: clamp(1rem, 2vw, 1.125rem);
     line-height: 1.8;
     color: #555;
 }
@@ -45,45 +51,20 @@ h1{
 .stats{
     display: flex;
     gap: 50px;
-    margin: 30px 0;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .stat h2{
-    font-size: 40px;
+    font-size: clamp(2rem, 4vw, 2.5rem);
     color: #333;
     margin-bottom: 10px;
 }
 
 .stat span{
-    font-size: 18px;
+    font-size: clamp(1rem, 2vw, 1.1rem);
     color: #555;
 }
-
-
-/*
-button{
-    background-color: #333;
-    color: #faede1;
-
-    padding: 15px 30px;
-
-    border: none;
-    border-radius: 30px;
-
-    font-size: 16px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: transform 0.2s ease;
-}
-
-button:hover{
-    transform: translateY(-3px);
-    background-color: #555;
-}
-    */
-
 
 /* animacao que faz a imagem ir pra cima e pra baixo */
 @keyframes float{
@@ -95,6 +76,53 @@ button:hover{
     }
     100%{
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px){
+
+    #Sobre{
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    #Sobre img{
+        width: 90%;
+    }
+
+    .texto{
+        text-align: center;
+    }
+
+    .stats{
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    h1{
+        font-size: 2.2rem;
+    }
+
+    .texto p{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px){
+
+    #Sobre{
+        padding: 30px 15px;
+    }
+
+    #Sobre img{
+        width: 100%;
+    }
+
+    .stats{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
     }
 }
 

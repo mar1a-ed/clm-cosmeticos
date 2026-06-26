@@ -1,5 +1,11 @@
 *{
-    font-family: "poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
 }
 
 .navbar{
@@ -8,7 +14,6 @@
     align-items: center;
     background-color: #faede1;
     padding: 15px 40px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     position: relative;
     z-index: 10;
     box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
@@ -25,9 +30,6 @@
 .menubar{
     display: flex;
     gap: 30px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .menubar a{
@@ -217,14 +219,95 @@
 }
 
 @media (max-width: 768px){
+
+    .navbar{
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .menubar{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .iconsPerfil{
+        justify-content: center;
+    }
+
     .carrinho-container{
         flex-direction: column;
+        padding: 20px;
+    }
+
+    .carrinho-itens,
+    .carrinho-resume{
+        width: 100%;
+    }
+
+    .carrinho-resume{
+        position: static;
     }
 
     .item-card{
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
+    }
+
+    .item-info{
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .item-qtd{
+        width: fit-content;
+    }
+
+}
+
+@media (max-width: 480px){
+
+    .navbar{
+        padding: 15px;
+    }
+
+    .iconLogo img{
+        height: 50px;
+    }
+
+    .menubar{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .iconsPerfil{
+        gap: 15px;
+    }
+
+    .item-card{
+        padding: 15px;
+    }
+
+    .item-card img{
+        width: 70px;
+        height: 70px;
+    }
+
+    .item-info p{
+        font-size: 13px;
+    }
+
+    .carrinho-resume{
+        padding: 20px;
+    }
+
+    .btn-finalizar{
+        padding: 12px;
+        font-size: 15px;
     }
 
 }

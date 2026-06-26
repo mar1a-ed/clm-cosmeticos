@@ -1,7 +1,13 @@
 *{
-    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
 
 .perfil-section{
     padding: 60px 5%;
@@ -115,7 +121,6 @@
 .perfil-form .linha-input .input-group input{
     width: 100%;
     padding: 10px;
-    box-sizing: border-box;
 }
 
 .genero-container{
@@ -131,7 +136,7 @@
     font-size: 15px;
     color: #222;
     cursor: pointer;
-        white-space: nowrap;
+    white-space: nowrap;
 
 }
 
@@ -176,6 +181,103 @@ input[readonly]{
 }
 
 
+@media (max-width: 768px){
+
+    .perfil-section{
+        padding: 40px 20px;
+    }
+
+    .perfil-container{
+        flex-direction: column;
+    }
+
+    .perfil-sidebar{
+        width: 100%;
+        padding: 20px;
+    }
+
+    .perfil-menu{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .perfil-menu a{
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        padding: 10px 15px;
+        border-radius: 8px;
+    }
+
+    .perfil-menu a:hover,
+    .perfil-menu a.active{
+        border-left: none;
+        border-bottom: 3px solid #725f60;
+    }
+
+    .perfil-content{
+        padding: 30px 20px;
+    }
+
+    .perfil-form .linha-input{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .genero-container{
+        flex-wrap: wrap;
+    }
+
+}
+
+@media (max-width: 480px){
+
+    .perfil-section{
+        padding: 20px 15px;
+    }
+
+    .perfil-header .avatar{
+        width: 70px;
+        height: 70px;
+    }
+
+    .perfil-header h3{
+        font-size: 18px;
+    }
+
+    .perfil-content{
+        padding: 20px 15px;
+    }
+
+    .perfil-content h2{
+        font-size: 22px;
+    }
+
+    .perfil-content .subtitulo{
+        font-size: 14px;
+    }
+
+    .perfil-menu{
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .perfil-menu a{
+        width: 100%;
+        text-align: center;
+    }
+
+    .genero-container{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .botaoDark{
+        width: 100%;
+    }
+
+}
 
 
 

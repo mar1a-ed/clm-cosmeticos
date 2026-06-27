@@ -1,5 +1,10 @@
-body{
+*{
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
     background-image: linear-gradient(135deg, #dea8b1 0%, #f4d3d8 100%);
     font-family: 'Montserrat', sans-serif;
 }
@@ -14,7 +19,6 @@ h1, h2, h3{
     align-items: center;
     background-color: #faede1;
     padding: 15px 40px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     position: relative;
     z-index: 10;
     box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
@@ -171,11 +175,12 @@ h1, h2, h3{
     padding: 60px 80px;
 }
 
-.ladoEsquerdo, .ladoDireito{
+.ladoEsquerdo{
     flex: 1;
 }
 
 .ladoDireito-imgsFloat{
+    width: 100%;
     max-width: 500px;
     height: auto;
     border-radius: 15px;
@@ -184,7 +189,12 @@ h1, h2, h3{
     animation: float 3s ease-in-out infinite;
 }
 
+
+
 .carrossel{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -262,14 +272,14 @@ h1, h2, h3{
 }
 
 .ladoEsquerdo h1{
-    font-size: 40px;
+    font-size: clamp(2rem,5vw,2.8rem);
     color: #333;
     line-height: 1.2;
     margin: 0;
 }
 
 .ladoEsquerdo p{
-    font-size: 18px;
+    font-size: clamp(1rem,2vw,1.125rem);
     color: #555;
     line-height: 1.5;
     margin: 0;
@@ -315,4 +325,51 @@ h1, h2, h3{
 
 .botaoSobreNos:hover{
     transform: translateY(-3px);
+}
+
+@media (max-width: 768px){
+    .imgPrincipal{
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .ladoEsquerdo{
+        padding-right: 0;
+        align-items: center;
+    }
+
+    .navbar{
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .menubar{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .iconsPerfil{
+        justify-content: center;
+    }
+
+    .ladoDireito-imgsFloat{
+        width: 90%;
+    }
+
+    .botoes{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .botaoComprar,
+    .botaoSobreNos{
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
 }

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../favicon/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <title>Login ou Cadastro</title>
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="login-img">
+            <a href="../inicio/inicio.html" class="voltar-inicio">&#10094; Voltar à página inicial</a>
+        </div>
+
+        <div class="login-form">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="trocarAba('login')">Entrar</button>
+                <button class="tab-btn" onclick="trocarAba('cadastro')">Cadastrar</button>
+            </div>
+
+            <div id="form-login" class="form-section active">
+                <h2>Bem-Vindo(a) de volta!</h2>
+                <p>Insira seus dados para acessar sua conta</p>
+
+                <form id="form-login-element">
+                    <div class="input-group">
+                        <label for="login-email">E-mail</label>
+                        <input type="email" id="login-email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="login-senha">Senha</label>
+                        <input type="password" id="login-senha" placeholder="********" required>
+                    </div>
+                    <div class="esqueci-senha">
+                        <a href="#">Esqueceu sua senha?</a>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Entrar na conta</button>
+                </form>
+            </div>
+
+            <div id="form-cadastro" class="form-section">
+                <h2>Criar Conta</h2>
+                <p>Preencha os campos abaixo para cadastrar</p>
+
+                <form id="form-cadastro-element">
+                    <div class="input-group">
+                        <label for="cad-nome">Nome Completo</label>
+                        <input type="text" id="cad-nome" placeholder="Maria da Silva" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="cad-email">E-mail</label>
+                        <input type="email" id="cad-email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="cad-senha">Senha</label>
+                        <input type="password" id="cad-senha" placeholder="Crie uma senha" required>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Criar Conta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

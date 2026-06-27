@@ -51,12 +51,32 @@ h1, h2, h3{
     color: #e5989b;
 }
 
-.dropdown{
-    position: relative;
-    display: inline-block;
+.iconsPerfil{
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
 
-.dropdownConteudo{
+.iconsPerfil img{
+    display: inline-block;
+    width: 23px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.iconsPerfil img:hover{
+    transform: translateY(-3px);
+}
+
+.perfil-dropdown-container{
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: -10px;
+}
+
+.dropdown-menu{
     display: none;
     position: absolute;
     top: 100%;
@@ -65,27 +85,67 @@ h1, h2, h3{
     background-color: #fff;
     min-width: 180px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
+    padding: 10px;
     z-index: 100;
-}
-
-.dropdownConteudo a{
-    display: block;
-    padding: 10px 20px;
-    font-size: 14px;
-    transition: background-color 0.3s;
     text-align: center;
 }
 
-.dropdownConteudo a:hover{
-    background-color: #f4d3d8;
-    color: #000;
-}
-
-.dropdown:hover .dropdownConteudo{
+.perfil-dropdown-container:hover .dropdown-menu{
     display: block;
+    animation: fadeIn 0.3s ease;
 }
 
+.dropdown-header{
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.botaoEntrar{
+    display: block;
+    background-color: #333;
+    color: #faede1 !important;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 0;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+
+.botaoEntrar:hover{
+    background-color: #555;
+}
+
+.linkCadastro{
+    display: block;
+    font-family: 13px;
+    color: #333 !important;
+    text-decoration: none;
+}
+
+.linkCadastro b{
+    color: #e5989b;
+}
+
+.linkCadastro:hover b{
+    text-decoration: underline;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translate(-50%, -10px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/*
 .iconsPerfil{
     display: flex;
     gap: 20px;
@@ -102,6 +162,7 @@ h1, h2, h3{
 .iconsPerfil img:hover{
     transform: translateY(-3px);
 }
+*/
 
 .imgPrincipal{
     display: flex;

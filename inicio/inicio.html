@@ -13,7 +13,6 @@
 </head>
 </head>
 <body>
-    <script src="script.js"></script>
 
     <header class="navbar">
         <div class="iconLogo">
@@ -58,7 +57,16 @@
 
         <div class="iconsPerfil">
             <a href="../favoritos/"><img src="../imgs/coracao.png"></a>
-            <a href="../perfil/perfil.html"><img src="../imgs/Sample_User_Icon.png"></a>
+            <div class="perfil-dropdown-container">
+                <img src="../imgs/Sample_User_Icon.png" alt="Perfil">
+                <div class="dropdown-menu" id="dropdown-menu-perfil">
+                    <div id="menu-deslogado">
+                        <div class="dropdown-header">Bem-Vindo(a) à CLM-Cosmetics</div>
+                        <a href="../login/login-cadastro.html" class="botaoEntrar">Fazer Login</a>
+                        <a href="../cadastro/cadastro.html" class="linkCadastro">Novo por aqui? <b>Cadastre-se</b></a>
+                    </div>
+                </div>
+            </div>
             <a href="../pedidos/meusPedidos.html"><img src="../imgs/5087784.png"></a>
         </div>
     </header>
@@ -92,5 +100,6 @@
         </div>
     </div>
     
+    <script src="script.js"></script>
 </body>
 </html>

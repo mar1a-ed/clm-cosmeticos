@@ -71,3 +71,124 @@ VALUES
 (28, 'Hidratante Facial Vegano Aloe Vera', 'Hidratante 100% vegano à base de aloe vera.', 42.90, 40, 'https://placehold.co/400x400/dcf0d8/2a5a2a?text=Hidratante+Vegano', 'PRODUTOS_NATURAIS', 'COSMETICO_VEGANO'),
 (29, 'Sabonete Orgânico de Lavanda', 'Sabonete artesanal orgânico, livre de químicos agressivos.', 22.90, 50, 'https://placehold.co/400x400/e6dcf2/4a3a6a?text=Sabonete+Organico', 'PRODUTOS_NATURAIS', 'COSMETICO_ORGANICO'),
 (30, 'Óleo Corporal Vegano Amêndoas', 'Óleo corporal vegano nutritivo de amêndoas doces.', 36.90, 38, 'https://placehold.co/400x400/f0e4d0/6a4a2a?text=Oleo+Amendoas', 'PRODUTOS_NATURAIS', 'COSMETICO_VEGANO');
+
+
+UPDATE produto
+SET imagem = 'https://images.tcdn.com.br/img/img_prod/1387763/base_lquida_matte_fand_cosmticos_30g_15_20260424114134_8d3691e8b5ba.jpg'
+WHERE nome = 'Base Líquida Matte HD';
+
+UPDATE produto
+SET imagem = 'https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_avif,fl_progressive,q_auto:eco,w_210,h_210/dpr_2.0/v1/imagens/product/Q56942/00387729-e698-4f6d-bdeb-a7862e87eb05-q56942-batom-liquido-instamatte-cerejali-4ml-aberto.jpg'
+WHERE nome = 'Batom Líquido Vermelho Clássico';
+
+UPDATE produto
+SET imagem = 'https://m.media-amazon.com/images/I/41WM57UlgfL.jpg'
+WHERE nome = 'Máscara de Cílios Volume Extremo';
+
+UPDATE produto
+SET imagem = 'https://m.media-amazon.com/images/I/61hacKUBXYL.jpg'
+WHERE nome = 'Hidratante Facial Hialurônico';
+
+UPDATE produto
+SET imagem = 'https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_avif,fl_progressive,q_auto:eco,w_800/v1/imagens/product/Z51364/aa7eb939-feed-4bc7-a53c-c8207c7939ec-51364-1.jpg'
+WHERE nome = 'Sérum Vitamina C 20%';
+
+UPDATE produto
+SET imagem = 'https://http2.mlstatic.com/D_Q_NP_2X_703130-MLB89860354019_082025-E.webp'
+WHERE nome = 'Sabonete Facial Espuma Suave';
+
+UPDATE produto
+SET imagem = 'https://emiratesoud.co.uk/cdn/shop/files/Pur-Elegance-Perfume-100ml-EDP-Fragrance-World-126531028.jpg?v=1715473165&width=1946'
+WHERE nome = 'Perfume Floral Élégance 100ml';
+
+UPDATE produto
+SET imagem = 'https://kosmetikaonline.com/cdn/shop/files/COLONIA_LIVING_FRESH.png?v=1728920152&width=500'
+WHERE nome = 'Colônia Cítrica Fresh 200ml';
+
+UPDATE produto
+SET imagem = 'https://enfisa.com.br/wp-content/uploads/2025/02/Body-Splash-Instance-Frutas-Vermelhas-da-Eudora.jpg'
+WHERE nome = 'Body Splash Frutas Vermelhas';
+
+UPDATE produto
+SET imagem = 'https://cdn1.staticpanvel.com.br/produtos/15/93185-15.jpg'
+WHERE nome = 'Protetor Solar Facial FPS 60';
+
+UPDATE produto
+SET imagem = 'https://http2.mlstatic.com/D_NQ_NP_965957-MLU78604648344_082024-O.webp'
+WHERE nome = 'Protetor Solar Corporal FPS 30';
+
+UPDATE produto
+SET imagem = 'https://http2.mlstatic.com/D_NQ_NP_738596-MLU76780707272_062024-O.webp'
+WHERE nome = 'Protetor Solar Facial FPS 80 Toque Seco';
+
+UPDATE produto
+SET imagem = 'https://images.tcdn.com.br/img/img_prod/1027140/vermelho_feito_paixao_esmalte_em_gel_377_1_86041ff68e133ae1b7b1cc87708f3d6c.jpg'
+WHERE nome = 'Esmalte Vermelho Paixão';
+
+UPDATE produto
+SET imagem = 'https://t41847.vteximg.com.br/arquivos/ids/10710446-220-220/EsmalteImpalaBsicoCremosoNudeClss.jpg?v=638693466360130000'
+WHERE nome = 'Esmalte Nude Elegance';
+
+UPDATE produto
+SET imagem = 'https://mixdajo.fbitsstatic.net/img/p/removedor-de-esmalte-repos-140ml-sem-acetona-143735/331636.jpg?w=420&h=420&v=no-value'
+WHERE nome = 'Removedor de Esmalte sem Acetona';
+
+UPDATE produto
+SET imagem = 'https://ikesaki.vtexassets.com/arquivos/ids/226659-800-auto?v=636973232415300000&width=800&height=auto&aspect=true'
+WHERE nome = 'Creme Anti-Idade Noturno';
+
+UPDATE produto
+SET imagem = 'https://m.media-amazon.com/images/I/51zzp4KytNL.jpg'
+WHERE nome = 'Sérum Clareador Facial';
+
+UPDATE produto
+SET imagem = 'https://images-na.ssl-images-amazon.com/images/I/41G3NAT+ygL.jpg'
+WHERE nome = 'Creme Anti-Idade Olheiras';
+
+UPDATE produto
+SET imagem = 'https://static.zattini.com.br/produtos/locao-hidratante-corporal-hidramais-manteiga-de-karite-500ml/60/MPK-0027-460/MPK-0027-460_zoom1.jpg?ts=1694469249&ims=544x'
+WHERE nome = 'Hidratante Corporal Manteiga de Karité';
+
+UPDATE produto
+SET imagem = 'https://cdn.awsli.com.br/600x1000/2636/2636400/produto/228773513/1-91-bcf0d036f37dc4b76d16861620615000-640-0-b6ry6cd5wm.png'
+WHERE nome = 'Óleo de Banho Lavanda';
+
+UPDATE produto
+SET imagem = 'https://images.tcdn.com.br/img/img_prod/1379142/hidratante_corporal_agua_de_coco_erva_doce_e_camomila_17_1_de0347a9d7ccfb743fa13bef7d440df6.png'
+WHERE nome = 'Hidratante Corporal Coco';
+
+UPDATE produto
+SET imagem = 'https://m.media-amazon.com/images/I/31bxKRQSikL.jpg'
+WHERE nome = 'Pincel para Base Profissional';
+
+UPDATE produto
+SET imagem = 'https://images.tcdn.com.br/img/img_prod/789130/esponja_vizzela_fluffy_blender_34161_1_67357dccc4b5617282ac916f61b0c767.jpg'
+WHERE nome = 'Esponja de Maquiagem Multifuncional';
+
+UPDATE produto
+SET imagem = 'https://cdn.dooca.store/153029/products/zeoukcjijh9wef9u4wdra5tyvlb3rrlaswmu_640x640+fill_ffffff.jpg?v=1720135116&webp=0'
+WHERE nome = 'Necessaire de Viagem Compacta';
+
+UPDATE produto
+SET imagem = 'https://adcos.vtexassets.com/arquivos/ids/163357/01_kits_presenteaveis.jpg?v=637860722046800000'
+WHERE nome = 'Kit Presente Skincare Essencial';
+
+UPDATE produto
+SET imagem = 'https://jequiti.vtexassets.com/arquivos/ids/172059-600-0/311.png.png?v=638799090627300000'
+WHERE nome = 'Kit Presente Perfumaria Deluxe';
+
+UPDATE produto
+SET imagem = 'https://m.media-amazon.com/images/I/71DVuLF4h7L.jpg'
+WHERE nome = 'Kit Maquiagem Básica';
+
+UPDATE produto
+SET imagem = 'https://cdn.awsli.com.br/2336/2336267/arquivos/40827e-creme-hidratante-facial-aloe-vera-e-abacate-organic-shop-ingredientes.JPG'
+WHERE nome = 'Hidratante Facial Vegano Aloe Vera';
+
+UPDATE produto
+SET imagem = 'https://m.media-amazon.com/images/S/aplus-media-library-service-media/e5ec8fad-067e-4ad9-a740-6c85a6f0041b.__CR0,0,1940,1200_PT0_SX970_V1___.png'
+WHERE nome = 'Sabonete Orgânico de Lavanda';
+
+UPDATE produto
+SET imagem = 'https://http2.mlstatic.com/D_NQ_NP_807561-MLU77662975018_072024-O.webp'
+WHERE nome = 'Óleo Corporal Vegano Amêndoas';

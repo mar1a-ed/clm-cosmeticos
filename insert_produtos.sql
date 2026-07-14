@@ -20,6 +20,8 @@
 -- imagem ou link instável de loja).
 -- =====================================================================
 
+select * from produto;
+
 INSERT INTO produto (id, nome, descricao, preco, estoque, imagem, categoria, tipo_produto)
 VALUES
 -- ===================== MAQUIAGEM =====================
@@ -192,3 +194,70 @@ WHERE nome = 'Sabonete Orgânico de Lavanda';
 UPDATE produto
 SET imagem = 'https://http2.mlstatic.com/D_NQ_NP_807561-MLU77662975018_072024-O.webp'
 WHERE nome = 'Óleo Corporal Vegano Amêndoas';
+
+
+--novos inserts
+ALTER TABLE produto
+DROP CONSTRAINT produto_tipo_produto_check;
+
+ALTER TABLE produto
+ADD CONSTRAINT produto_tipo_produto_check
+CHECK (
+	tipo_produto IN (
+	'BASE',
+	'BATOM',
+	'MASCARA_DE_CILIOS',
+	'HIDRATANTE_FACIAL',
+	'SERUM',
+	'SABONETE_FACIAL',
+	'PERFUME',
+	'COLONIA',
+	'BODY_SPLASH',
+	'PROTETOR_SOLAR_FACIAL',
+	'PROTETOR_SOLAR_CORPORAL',
+	'ESMALTE',
+	'REMOVEDOR_DE_ESMALTE',
+	'ANTI_IDADE',
+	'CLAREADOR_FACIAL',
+	'HIDRATANTE_CORPORAL',
+	'OLEO_DE_BANHO',
+	'PINCEL',
+	'ESPONJA_DE_MAQUIAGEM',
+	'NECESSAIRE',
+	'KIT_PROMOCIONAL',
+	'COSMETICO_VEGANO',
+	'COSMETICO_ORGANICO',
+	'OUTROS_ACESSORIOS'
+));
+
+INSERT INTO produto (nome, descricao, preco, estoque, imagem, categoria, tipo_produto)
+VALUES
+('Pincel Kabuki Profissional', 'Ideal para aplicação uniforme de base e pó.', 49.90, 20, 'https://tfczxi.vtexassets.com/arquivos/ids/176946-800-auto?v=638096509239830000&width=800&height=auto&aspect=true', 'ACESSORIOS_DE_BELEZA', 'PINCEL'),
+('Pincel para Delineado', 'Pincel fino para delineados precisos.', 22.90, 18, 'https://http2.mlstatic.com/D_Q_NP_2X_975891-MLU74971476679_032024-E.webp', 'ACESSORIOS_DE_BELEZA', 'PINCEL'),
+('Pincel para Blush', 'Cerdas macias para aplicação de blush.', 39.90, 25, 'https://http2.mlstatic.com/D_Q_NP_2X_805598-MLA92367533506_092025-E.webp', 'ACESSORIOS_DE_BELEZA', 'PINCEL');
+
+INSERT INTO produto (nome, descricao, preco, estoque, imagem, categoria, tipo_produto)
+VALUES
+('Necessaire Rosa Premium', 'Necessaire espaçosa para organizar seus cosméticos.', 59.90, 10, 'https://m.media-amazon.com/images/I/41i9ZscLeNL.jpg', 'ACESSORIOS_DE_BELEZA', 'NECESSAIRE'),
+('Necessaire Transparente', 'Ideal para viagens e organização.', 39.90, 22, 'https://m.media-amazon.com/images/I/61pL0LiFpfL.jpg', 'ACESSORIOS_DE_BELEZA', 'NECESSAIRE'),
+('Necessaire Floral', 'Modelo compacto com estampa floral.', 44.90, 15, 'https://m.media-amazon.com/images/I/91+NI14rsPL.jpg', 'ACESSORIOS_DE_BELEZA', 'NECESSAIRE'),
+('Necessaire Luxo Preta', 'Necessaire elegante com acabamento premium.', 69.90, 8, 'https://dptafza4tn3d0.cloudfront.net/cache/catalog/CV33824/necessaire-prada-nylon-preta-CV33824(2)-507x634.png', 'ACESSORIOS_DE_BELEZA', 'NECESSAIRE');
+
+INSERT INTO produto (nome, descricao, preco, estoque, imagem, categoria, tipo_produto)
+VALUES
+('Curvador de Cílios', 'Modela os cílios com conforto e precisão.', 34.90, 20, 'https://cdn.awsli.com.br/600x1000/1641/1641981/produto/62570190/e370d6d6d6.jpg', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
+('Apontador Duplo para Lápis', 'Compatível com lápis fino e grosso.', 14.90, 40, 'https://http2.mlstatic.com/D_Q_NP_2X_919660-MLB50182491143_062022-E-apontador-duplo-para-lapis-de-maquiagem-macrilan-make-up.webp', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
+('Espelho de Bolsa', 'Espelho compacto para levar na bolsa.', 29.90, 28, 'https://http2.mlstatic.com/D_Q_NP_2X_822237-MLB94036049646_102025-V-kit-05-espelho-redondo-mo-bolsa-colorido-mes-rosa-aumento.webp', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
+('Organizador de Maquiagem', 'Organizador acrílico para bancada.', 89.90, 8, 'https://cdn.leroymerlin.com.br/products/organizador_de_maquiagem_4_gavetas_com_bandeja_para_batom_1567805433_1da7_600x600.jpg', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
+('Faixa para Skincare', 'Faixa macia para prender os cabelos durante os cuidados com a pele.', 24.90, 35, 'https://http2.mlstatic.com/D_Q_NP_2X_816699-MLB92772774408_092025-E-tiara-faixa-laco-maquiagem-skincare-limpeza-facial.webp', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
+('Porta Pincéis Acrílico', 'Organizador transparente para pincéis.', 54.90, 12, 'https://images.tcdn.com.br/img/img_prod/679464/180_pote_acrilico_porta_pinceis_maquiagem_com_9_nichos_7_2_4cbae4ed66296e25b1e7170b996dac28.jpg', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
+('Pincel para Sobrancelha', 'Pincel chanfrado ideal para preencher e definir as sobrancelhas.', 18.90, 30, 'https://http2.mlstatic.com/D_Q_NP_2X_724825-MLU72461324494_102023-E.webp', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
+('Pinça para Sobrancelha', 'Pinça de precisão para remoção de pelos com facilidade.', 16.90, 35, 'https://http2.mlstatic.com/D_Q_NP_2X_614326-MLA90927145216_082025-E.webp', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
+('Lixa de Unha', 'Lixa resistente para modelar e cuidar das unhas.', 4.90, 100, 'https://images.tcdn.com.br/img/img_prod/1222376/180_pacote_com_100_mini_lixas_de_unha_rosa_9_cm_landhs_47_2_09bf1d476546a4c1b90162d4acb7bf62.jpg', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
+('Cílios Postiços', 'Cílios postiços para complementar diferentes estilos de maquiagem.', 15.90, 60, 'https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_avif,fl_progressive,q_auto:eco,w_210,h_210/dpr_2.0/v1/imagens/product/651394/2676228c-5cda-45d1-ba20-1c07d19e599c-2024-09-26t082025264127972-651394-65d4b5eac4936428e5551c86.jpg', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
+('Aplicador de Máscara de Cílios', 'Aplicador reutilizável para separar e modelar os cílios.', 11.90, 25, 'https://http2.mlstatic.com/D_Q_NP_2X_602902-MLB82156844421_012025-E-aplicador-protetor-mascara-de-cilios-rimel-olhos-maquiagem.webp', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
+('Touca de Cetim', 'Touca de cetim que ajuda a proteger os cabelos durante o sono.', 29.90, 30, 'https://m.media-amazon.com/images/I/51nsUtAPR+L.jpg', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
+('Rolo Facial Massageador', 'Massageador facial para auxiliar nos cuidados com a pele.', 49.90, 15, 'https://m.media-amazon.com/images/I/41xT5JgB1DL.jpg', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
+('Garrafa Spray para Cabelo', 'Frasco spray para aplicação de produtos capilares.', 14.90, 35, 'https://i.ebayimg.com/images/g/qrkAAOSwkbhjScKC/s-l960.webp', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS');
+
+

@@ -24,6 +24,8 @@ CREATE DATABASE clm_database;
 
 use clm_database;
 
+select * from produto;
+
 INSERT INTO produto (id, nome, descricao, preco, estoque, imagem, categoria, tipo_produto)
 VALUES
 -- ===================== MAQUIAGEM =====================
@@ -258,14 +260,3 @@ VALUES
 ('Touca de Cetim', 'Touca de cetim que ajuda a proteger os cabelos durante o sono.', 29.90, 30, 'https://m.media-amazon.com/images/I/51nsUtAPR+L.jpg', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
 ('Rolo Facial Massageador', 'Massageador facial para auxiliar nos cuidados com a pele.', 49.90, 15, 'https://m.media-amazon.com/images/I/41xT5JgB1DL.jpg', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
 ('Garrafa Spray para Cabelo', 'Frasco spray para aplicação de produtos capilares.', 14.90, 35, 'https://i.ebayimg.com/images/g/qrkAAOSwkbhjScKC/s-l960.webp', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS');
-
-
-
-
-
-
-
-
-
-
-

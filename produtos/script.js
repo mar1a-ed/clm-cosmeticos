@@ -1,4 +1,7 @@
 const URL_API_PRODUTOS = "http://localhost:8080/produtos/produtos.html";
+
+// Descobre em qual página estamos
+const PAGINA = document.body.dataset.pagina;
  
 const listaProdutosEl = document.getElementById("lista-produtos");
 const statusMsgEl = document.getElementById("status-msg");
@@ -28,41 +31,59 @@ async function carregarProdutos() {
 
 function exibirProdutos(produtos) {
   statusMsgEl.remove();
- 
+
   if (!produtos || produtos.length === 0) {
     listaProdutosEl.innerHTML = "<p>Nenhum produto encontrado.</p>";
     return;
   }
  
   produtos.forEach(function (produto) {
+    // Filtra conforme a página
+    // Página Produtos: não mostra acessórios nem kits
+    if (PAGINA === "produtos" &&(produto.categoria === "ACESSORIOS_DE_BELEZA" ||produto.categoria === "KITS_E_PRESENTES")) 
+      return;
+
+    // Página Acessórios: mostra apenas acessórios
+    if (PAGINA === "acessorios" &&produto.categoria !== "ACESSORIOS_DE_BELEZA") 
+      return;
+
+    // Página Kits: mostra apenas kits
+    if (PAGINA === "kits" && produto.categoria !== "KITS_E_PRESENTES") 
+      return;
+    
+
     const card = document.createElement("div");
     card.classList.add("card-produto");
     card.dataset.categoria = produto.categoria ?? "";
+    card.dataset.tipo = produto.tipoProduto ?? "";
     card.dataset.nome = (produto.nome ?? "").toLowerCase();
  
     const semEstoque = !produto.estoque || produto.estoque <= 0;
- 
+
     card.innerHTML = `
       <button class="btn-favorito" type="button" aria-label="Favoritar produto">
         ♡
       </button>
- 
-      <img class="imagem-produto" src="${produto.imagem ?? ""}" alt="${produto.nome ?? "Produto"}"
+
+      <img class="imagem-produto"
+           src="${produto.imagem ?? ""}"
+           alt="${produto.nome ?? "Produto"}"
            onerror="this.src='https://via.placeholder.com/220x160?text=Sem+imagem'">
- 
+
       <div class="tags">
         <span class="tag">${produto.categoria ?? ""}</span>
         <span class="tag">${produto.tipoProduto ?? ""}</span>
       </div>
- 
+
       <h2>${produto.nome ?? "Produto sem nome"}</h2>
       <p class="descricao">${produto.descricao ?? ""}</p>
- 
+
       <p class="preco">R$ ${Number(produto.preco ?? 0).toFixed(2)}</p>
+
       <p class="estoque ${semEstoque ? "esgotado" : ""}">
         ${semEstoque ? "Sem estoque" : produto.estoque + " em estoque"}
       </p>
- 
+
       <button class="btn-carrinho" type="button" ${semEstoque ? "disabled" : ""}>
         Adicionar ao carrinho
       </button>
@@ -126,6 +147,7 @@ function exibirProdutos(produtos) {
       localStorage.setItem('carrinhoEcommerce', JSON.stringify(carrinho));
 
       const textoOriginal = btnCarrinho.textContent;
+
       btnCarrinho.textContent = "Adicionado!";
       btnCarrinho.classList.add("confirmado");
 
@@ -138,11 +160,11 @@ function exibirProdutos(produtos) {
     listaProdutosEl.appendChild(card);
   });
 }
-
 const botoesFiltro = document.querySelectorAll(".filter-pills .btn-pill");
 const inputBusca = document.getElementById("searchInput");
  
 let categoriaAtual = "TODOS";
+let tipoAtual = "";
 let textoBuscaAtual = "";
 
 function aplicarFiltros() {
@@ -165,11 +187,9 @@ botoesFiltro.forEach(function (botao) {
  
     botoesFiltro.forEach(function (b) {
       b.classList.remove("active");
-    });
-    botao.classList.add("active");
- 
-    aplicarFiltros();
-  });
+    })
+
+  })
 });
  
 inputBusca.addEventListener("input", function () {
@@ -197,5 +217,5 @@ if (menuToggle && menubar) {
     });
   });
 }
- 
+
 carregarProdutos();

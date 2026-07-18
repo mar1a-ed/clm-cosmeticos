@@ -27,8 +27,8 @@
                 <nav class="perfil-menu">
                     <a href="#" class="active">Meus Dados</a>
                     <a href="../pedidos/meusPedidos.html">Meus Pedidos</a>
-                    <a href="../favoritos/#">Lista de Desejos</a>
-                    <a href="#" class="botaoSair">Sair da Conta</a>
+                    <a href="../favoritos/favoritos.html">Lista de Desejos</a>
+                    <button type="button" id="botaoSair" class="botaoSair" onclick="fazerLogout()">Sair da Conta</button>
                 </nav>
             </aside>
 
@@ -53,7 +53,7 @@
                     <div class="linha-input">
                         <div class="input-group">
                             <label for="E-mail">Data de Nascimento</label>
-                            <input type="date" id="dataNasc">
+                            <input type="date" id="dataNascimento">
                         </div>
                         <div class="input-group">
                             <label>CPF</label>
@@ -67,7 +67,7 @@
                         </div>
                         <div class="input-group">
                             <label>Endereço</label>
-                            <input type="text" id="Endereço" value="Rua X, Número X, Bairro X, Cidade X, Estado - XX">
+                            <input type="text" id="endereco" value="Rua X, Número X, Bairro X, Cidade X, Estado - XX">
                         </div>
                     </div>
                     <div class="linha-input">
@@ -89,7 +89,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="botaoDark">Salvar Dados</button>
+                    <button type="submit" class="botaoDark" onclick="updateDadosUsuario(event)">Salvar Dados</button>
                 </form>
                 <hr class="divisor">
                 <h3>Alterar Senha</h3>

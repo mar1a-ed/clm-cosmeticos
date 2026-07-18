@@ -19,35 +19,6 @@
         </div>
 
         <div class="menubar">
-            <!-- <div class="dropdown">
-                <a href="">Rosto</a>
-                <div class="dropdownConteudo">
-                    <a>Bases</a>
-                    <a>Pó Compacto</a>
-                    <a>Corretivos</a>
-                    <a>Blush</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <a href="">Olhos</a>
-                <div class="dropdownConteudo">
-                    <a>Sombras</a>
-                    <a>Delineadores</a>
-                    <a>Lápis</a>
-                    <a>Marcador de Cílios</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <a href="">Lábios</a>
-                <div class="dropdownConteudo">
-                    <a>Batons</a>
-                    <a>Gloss Labial</a>
-                    <a>Lápis de Contorno</a>
-                </div>
-            </div> -->
-
             <a href="../produtos/produtos.html">Produtos</a>
             <a href="">Acessórios</a>
             <a href="">Kits</a>
@@ -86,7 +57,7 @@
         </div>
 
         <div class="ladoDireito-imgsFloat">
-            <button class="setaCarrossel setaEsquerda" onclick="moverImgsCarrossel(-1)">&#10094;</button>
+            <button class="setaCarrossel setaEsquerda" onclick="moverCarrossel(-1)">&#10094;</button>
             <div class="carrossel">
                 <div class="carrosselImgs" id="track">
                     <img src="../imgs/foto-maquiagem.webp" alt="maquiagem" class="imgFloat">
@@ -95,10 +66,90 @@
                     <img src="../imgs/glossFramboesa.webp" alt="glossFramboesa" class="imgFloat">
                 </div>
             </div> 
-            <button class="setaCarrossel setaDireita" onclick="moverImgsCarrossel(1)">&#10095;</button>
+            <button class="setaCarrossel setaDireita" onclick="moverCarrossel(1)">&#10095;</button>
         </div>
     </div>
     
+    <!---------------------->
+    <!--Seção Sobre a Loja-->
+    <section id="secao-sobre" class="secao-sobre">
+        <div id="Sobre">
+            <img src="../imgs/1103tr1301_5c.jpeg" alt="foto maquiagens">
+            <div class="texto">
+                <h1>Sobre nós</h1>
+                <p>Na nossa loja, acreditamos que a beleza vai além da aparência — ela representa cuidado, confiança e bem-estar.</p>
+                <p>Trabalhamos com produtos de alta qualidade para oferecer cosméticos que valorizam sua beleza natural e tornam sua rotina ainda mais especial.</p>
+                <p>Nossa missão é proporcionar produtos modernos, acessíveis e selecionados com carinho, sempre acompanhando as principais tendências do universo da beleza.</p>
+                <div class="stats">
+                    <div class="stat">
+                        <h2>50+</h2>
+                        <span>Produtos</span>
+                    </div>
+                    <div class="stat">
+                        <h2>2k+</h2>
+                        <span>Clientes</span>
+                    </div>
+                    <div class="stat">
+                        <h2>98%</h2>
+                        <span>Satisfação</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--------------------------->
+    <!---Seção Contato da Loja-->
+    <section id="contato" class="contact-section">
+        <h2 class="titulo-secao" style="margin-bottom: 80px;">Contato</h2>
+        <div class="contact-container">  
+            <div class="contact-info">
+                <span class="tag">FALE CONOSCO</span>
+                <h1>Estamos aqui para você</h1>
+                <p>Tem alguma dúvida sobre nossos produtos de beleza, prazos de entrega ou quer apenas mandar um "olá"? Preencha o formulário e nossa equipe responderá em breve.</p>     
+                <div class="info-details">
+                    <div class="info-item">
+                        <strong>E-mail:</strong>
+                        <p>contato@clmcosmeticos.com.br</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Telefone / WhatsApp:</strong>
+                        <p>(11) 99999-9999</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Horário de Atendimento:</strong>
+                        <p>Seg a Sex - 09h às 18h</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form action="https://formspree.io/f/SEU_CODIGO_AQUI" method="POST">
+                    <div class="input-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                    </div>                 
+                    <div class="input-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="_replyto" placeholder="Seu melhor e-mail" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="assunto">Assunto</label>
+                        <select id="assunto" name="assunto">
+                            <option value="duvida">Dúvida sobre produto</option>
+                            <option value="pedido">Meu pedido</option>
+                            <option value="parceria">Parcerias</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>                   
+                    <div class="input-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Como podemos ajudar?" required></textarea>
+                    </div>                  
+                    <button type="submit" class="btn-dark">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
     <script src="script.js"></script>
 </body>
 </html>

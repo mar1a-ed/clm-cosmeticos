@@ -4,6 +4,25 @@
     padding: 0;
 }
 
+:root {
+  --nude:    #F2D4CC;
+  --cream:   #FAFAF8;
+  --charcoal:#2C2C2C;
+  --gold:    #C9A96E;
+  --rose:    #E8A598;
+  --muted:   #8A7E7A;
+  --card-bg: #FFFFFF;
+  --border:  #EDE5E2;
+  --bg-base: #FBF6F3;
+  --bg-alt: #EFE4DF;
+  --rose-deep: #7A3B44;
+  --ink: #3A2E2C;
+  --ink-soft: #6B5D5A;
+  --white: #FFFFFF;
+  --line: rgba(58, 46, 44, 0.08);
+  --shadow-soft: 0 12px 30px rgba(58, 46, 44, 0.06);
+}
+
 body{
     font-family: 'Montserrat', sans-serif;
     background-image: linear-gradient(135deg, #dea8b1 0%, #fdf5f5 100%);
@@ -24,11 +43,12 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #faede1;
+    background-color: var(--bg-base);
     padding: 15px 40px;
     position: relative;
     z-index: 10;
-    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--line);
+    box-shadow: /*0px 8px 25px rgba(0, 0, 0, 0.2);*/ none;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -58,12 +78,30 @@ a{
 
 .menubar a{
     text-decoration: none;
-    color: #000;
     font-size: 16px;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.menubar a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--rose-deep);
+    transition: width 0.25s ease;
 }
 
 .menubar a:hover{
-    color: #e5989b;
+    color: var(--ink);
+}
+
+.menubar a:hover::after{
+    width: 100%;
 }
 
 .iconsPerfil{

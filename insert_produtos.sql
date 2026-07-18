@@ -20,12 +20,16 @@
 -- imagem ou link instável de loja).
 -- =====================================================================
 
+CREATE DATABASE clm_database;
+
+use clm_database;
+
 select * from produto;
 
 INSERT INTO produto (id, nome, descricao, preco, estoque, imagem, categoria, tipo_produto)
 VALUES
 -- ===================== MAQUIAGEM =====================
-(1, 'Base Líquida Matte HD', 'Base de alta cobertura com acabamento matte e longa duração.', 49.90, 35, 'https://placehold.co/400x400/f5d6c6/4a2c2a?text=Base+Matte+HD', 'MAQUIAGEM', 'BASE'),
+(usuarios111, 'Base Líquida Matte HD', 'Base de alta cobertura com acabamento matte e longa duração.', 49.90, 35, 'https://placehold.co/400x400/f5d6c6/4a2c2a?text=Base+Matte+HD', 'MAQUIAGEM', 'BASE'),
 (2, 'Batom Líquido Vermelho Clássico', 'Batom líquido de secagem rápida e cor intensa.', 29.90, 50, 'https://placehold.co/400x400/c41e3a/ffffff?text=Batom+Vermelho', 'MAQUIAGEM', 'BATOM'),
 (3, 'Máscara de Cílios Volume Extremo', 'Máscara que alonga e dá volume sem borrar.', 34.90, 40, 'https://placehold.co/400x400/1a1a1a/ffffff?text=Mascara+Cilios', 'MAQUIAGEM', 'MASCARA_DE_CILIOS'),
 
@@ -73,7 +77,6 @@ VALUES
 (28, 'Hidratante Facial Vegano Aloe Vera', 'Hidratante 100% vegano à base de aloe vera.', 42.90, 40, 'https://placehold.co/400x400/dcf0d8/2a5a2a?text=Hidratante+Vegano', 'PRODUTOS_NATURAIS', 'COSMETICO_VEGANO'),
 (29, 'Sabonete Orgânico de Lavanda', 'Sabonete artesanal orgânico, livre de químicos agressivos.', 22.90, 50, 'https://placehold.co/400x400/e6dcf2/4a3a6a?text=Sabonete+Organico', 'PRODUTOS_NATURAIS', 'COSMETICO_ORGANICO'),
 (30, 'Óleo Corporal Vegano Amêndoas', 'Óleo corporal vegano nutritivo de amêndoas doces.', 36.90, 38, 'https://placehold.co/400x400/f0e4d0/6a4a2a?text=Oleo+Amendoas', 'PRODUTOS_NATURAIS', 'COSMETICO_VEGANO');
-
 
 UPDATE produto
 SET imagem = 'https://images.tcdn.com.br/img/img_prod/1387763/base_lquida_matte_fand_cosmticos_30g_15_20260424114134_8d3691e8b5ba.jpg'
@@ -195,8 +198,6 @@ UPDATE produto
 SET imagem = 'https://http2.mlstatic.com/D_NQ_NP_807561-MLU77662975018_072024-O.webp'
 WHERE nome = 'Óleo Corporal Vegano Amêndoas';
 
-
---novos inserts
 ALTER TABLE produto
 DROP CONSTRAINT produto_tipo_produto_check;
 
@@ -259,5 +260,3 @@ VALUES
 ('Touca de Cetim', 'Touca de cetim que ajuda a proteger os cabelos durante o sono.', 29.90, 30, 'https://m.media-amazon.com/images/I/51nsUtAPR+L.jpg', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
 ('Rolo Facial Massageador', 'Massageador facial para auxiliar nos cuidados com a pele.', 49.90, 15, 'https://m.media-amazon.com/images/I/41xT5JgB1DL.jpg', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS'),
 ('Garrafa Spray para Cabelo', 'Frasco spray para aplicação de produtos capilares.', 14.90, 35, 'https://i.ebayimg.com/images/g/qrkAAOSwkbhjScKC/s-l960.webp', 'ACESSORIOS_DE_BELEZA', 'OUTROS_ACESSORIOS');
-
-

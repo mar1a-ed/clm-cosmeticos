@@ -1,9 +1,10 @@
 let indexAtual = 0;
+let totalImgs = 0;
 
-function moverImgsCarrossel(direcaoSeta){
+function moverCarrossel(direcaoSeta){
     const track = document.getElementById("track");
     const imgs = track.querySelectorAll("img");
-    const totalImgs = imgs.length;
+    totalImgs = imgs.length;
 
     indexAtual += direcaoSeta;
 
@@ -19,25 +20,19 @@ function moverImgsCarrossel(direcaoSeta){
 }
 
 document.addEventListener('DOMContentLoaded', function(){
-    const usuarioLogado = localStorage.getItem('usuarioLogado');
-    const dropdownMenu = document.getElementById('dropdown-menu-perfil');
+    const userString = localStorage.getItem('userLogado');
 
-    if(usuarioLogado && dropdownMenu){   
-        const nomeGenerico = usuarioLogado.charAt(0).toUpperCase() + usuarioLogado.slice(1);
+    if(userString){
+        const usuario = JSON.parse(userString);
 
-        dropdownMenu.innerHTML = `
-            <div class="dropdown-header" style="font-size: 16px">Olá, <b style="color: #dea8b1;">${nomeGenerico}</b>!</div>
-            <a href="../perfil/perfil.html" style="color: #555; text-decoration: none; display: block; padding: 8px 0; font-weight: 500;">Meu Perfil</a>
-            <a href="../pedidos/meusPedidos.html" style="color: #555; text-decoration: none; display: block; padding: 8px 0; font-weight: 500;">Meus Pedidos</a>
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0 10px 0;">
-            <a href="#" id="btn-sair" style="color: #e5989b; text-decoration: none; display: block; padding: 5px 0; font-weight: bold;">Sair</a>
-        `;
+        const primeiroNome = usuario.nome.split(' ')[0];
 
-        document.getElementById('btn-sair').addEventListener('click', function(e){
-            e.preventDefault();
+        const linkLogin = document.getElementById('link-login');
 
-            localStorage.removeItem('usuarioLogado');
-            window.location.reload();
-        });
+        if(linkLogin){
+            linkLogin.textContent = `Olá, ${primeiroNome}`;
+            linkLogin.href = '../perfil/perfil.html';
+        }
     }
 });
+

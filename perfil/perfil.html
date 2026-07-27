@@ -33,83 +33,91 @@
             </aside>
 
             <section class="perfil-content">
-                <h2>Dados Pessoais</h2>
-                <p class="subtitulo">Atualize suas informações de usuário</p>
-                <form action="#" method="post" class="perfil-form">
-                    <div class="linha-input">
+                <div class="cabecalho-secao">
+                    <h2>Dados Pessoais</h2>
+                    <p>Atualize suas informações de usuário</p>
+                </div>
+
+                <form class="form-perfil">
+                    <div class="form-grid">
+                        
                         <div class="input-group">
                             <label for="nome">Nome</label>
-                            <input type="text" id="nome" value="Seu nome" required>
+                            <input type="text" id="nome">
                         </div>
+
                         <div class="input-group">
-                            <label for="nome">Sobrenome</label>
-                            <input type="text" id="sobrenome" value="Seu sobrenome" required>
+                            <label for="sobrenome">Sobrenome</label>
+                            <input type="text" id="sobrenome">
                         </div>
+
+                        <div class="input-group">
+                            <label for="dataNasc">Data de Nascimento</label>
+                            <input type="date" id="dataNasc">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" placeholder="###.###.###-##">
+                        </div>
+
                         <div class="input-group">
                             <label for="telefone">Telefone</label>
-                            <input type="tel" id="telefone" value="(34) 99999-9999">
+                            <input type="text" id="telefone" placeholder="(##) ##### - ####">
                         </div>
-                    </div>
-                    <div class="linha-input">
+
                         <div class="input-group">
-                            <label for="E-mail">Data de Nascimento</label>
-                            <input type="date" id="dataNascimento">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email">
                         </div>
-                        <div class="input-group">
-                            <label>CPF</label>
-                            <input type="text" id="cpf">
+
+                        <div class="input-group span-2">
+                            <label for="endereco">Endereço</label>
+                            <input type="text" id="endereco" value="Rua da Gueiteira, 443, Vila Dourada">
                         </div>
-                    </div>
-                    <div class="linha-input">
-                        <div class="input-group">
-                            <label for="E-mail">E-mail</label>
-                            <input type="email" id="email" value="xxxxx@email.com" readonly>
-                        </div>
-                        <div class="input-group">
-                            <label>Endereço</label>
-                            <input type="text" id="endereco" value="Rua X, Número X, Bairro X, Cidade X, Estado - XX">
-                        </div>
-                    </div>
-                    <div class="linha-input">
-                        <div class="input-group">
+
+                        <div class="input-group span-2 genero-group">
                             <label>Gênero</label>
-                            <div class="genero-container">
-                                <label class="radio-label">
-                                    <input type="radio" name="genero" value="feminino">
-                                    Feminino
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="genero" value="masculino">
-                                    Masculino
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="genero" value="outro">
-                                    Prefiro não informar
-                                </label>
+                            <div class="radios">
+                                <label><input type="radio" name="genero" value="feminino"> Feminino</label>
+                                <label><input type="radio" name="genero" value="masculino"> Masculino</label>
+                                <label><input type="radio" name="genero" value="n-informar" checked> Prefiro não informar</label>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="botaoDark" onclick="updateDadosUsuario(event)">Salvar Dados</button>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-primario" onclick="updateDadosUsuario(event)">Salvar Dados</button>
+                    </div>
                 </form>
+
                 <hr class="divisor">
-                <h3>Alterar Senha</h3>
-                <form action="#" method="post" class="perfil-form">
-                    <div class="linha-input">
+
+                <div class="cabecalho-secao">
+                    <h2>Alterar Senha</h2>
+                </div>
+
+                <form class="form-perfil">
+                    <div class="form-grid">
                         <div class="input-group">
                             <label for="senhaAtual">Senha Atual</label>
-                            <input type="password" id="senhaAtual" placeholder="********" required>
+                            <input type="password" id="senhaAtual" placeholder="********">
                         </div>
+
                         <div class="input-group">
                             <label for="novaSenha">Nova Senha</label>
-                            <input type="password" id="novaSenha" placeholder="Nova Senha" required>
+                            <input type="password" id="novaSenha" placeholder="Digite a nova senha">
                         </div>
                     </div>
-                    <button type="submit" class="botaoDark">Atualizar Senha</button>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn-primario" onclick="atualizarSenha(event)">Atualizar Senha</button>
+                    </div>
                 </form>
             </section>
         </div>
     </main>
-   
+  
     <script src="script.js"></script>
 </body>
 </html>

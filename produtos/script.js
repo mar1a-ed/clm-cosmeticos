@@ -38,20 +38,16 @@ function exibirProdutos(produtos) {
   }
  
   produtos.forEach(function (produto) {
-    // Filtra conforme a página
-    // Página Produtos: não mostra acessórios nem kits
-    if (PAGINA === "produtos" &&(produto.categoria === "ACESSORIOS_DE_BELEZA" ||produto.categoria === "KITS_E_PRESENTES")) 
+    // Filtra conforme a página (Renderização inicial)
+    if (PAGINA === "produtos" && (produto.categoria === "ACESSORIOS_DE_BELEZA" || produto.categoria === "KITS_E_PRESENTES")) 
       return;
 
-    // Página Acessórios: mostra apenas acessórios
-    if (PAGINA === "acessorios" &&produto.categoria !== "ACESSORIOS_DE_BELEZA") 
+    if (PAGINA === "acessorios" && produto.categoria !== "ACESSORIOS_DE_BELEZA") 
       return;
 
-    // Página Kits: mostra apenas kits
     if (PAGINA === "kits" && produto.categoria !== "KITS_E_PRESENTES") 
       return;
     
-
     const card = document.createElement("div");
     card.classList.add("card-produto");
     card.dataset.categoria = produto.categoria ?? "";
@@ -78,7 +74,7 @@ function exibirProdutos(produtos) {
       <h2>${produto.nome ?? "Produto sem nome"}</h2>
       <p class="descricao">${produto.descricao ?? ""}</p>
 
-      <p class="preco">R$ ${Number(produto.preco ?? 0).toFixed(2)}</p>
+      <p class="preco">R$ ${Number(produto.preco ?? 0).toFixed(2).replace('.', ',')}</p>
 
       <p class="estoque ${semEstoque ? "esgotado" : ""}">
         ${semEstoque ? "Sem estoque" : produto.estoque + " em estoque"}
@@ -89,7 +85,7 @@ function exibirProdutos(produtos) {
       </button>
     `;
  
-    //Botão de adicionar favorito
+    // Botão de adicionar favorito
     const btnFavorito = card.querySelector(".btn-favorito");
     
     btnFavorito.addEventListener("click", function(){
@@ -113,23 +109,27 @@ function exibirProdutos(produtos) {
       .then(async(response) =>{
         if(response.ok){
           const msg = await response.text();
-
           const prodFavorito = btnFavorito.classList.toggle("ativo");
           btnFavorito.textContent = prodFavorito ? "♥" : "♡";
-
           console.log(msg);
         }
       })
       .catch(error => console.error("Erro na requisição: ", error));
     });
     
-    //Botão de adicionar ao carrinho   
+    // Botão de adicionar ao carrinho   
     const btnCarrinho = card.querySelector(".btn-carrinho");
     
     btnCarrinho.addEventListener("click", function(){
-      
-      let carrinho = JSON.parse(localStorage.getItem('carrinhoEcommerce')) || [];
+      const userLogado = JSON.parse(localStorage.getItem('userLogado'));
 
+      if(!userLogado){
+        alert("Você precisa estar logado para adicionar produtos ao carrinho!");
+        window.location.href = '../login/login-cadastro.html';
+        return;
+      }
+
+      let carrinho = JSON.parse(localStorage.getItem('carrinhoEcommerce')) || [];
       let produtoExistente = carrinho.find(item => item.id === produto.id);
 
       if(produtoExistente){
@@ -147,7 +147,6 @@ function exibirProdutos(produtos) {
       localStorage.setItem('carrinhoEcommerce', JSON.stringify(carrinho));
 
       const textoOriginal = btnCarrinho.textContent;
-
       btnCarrinho.textContent = "Adicionado!";
       btnCarrinho.classList.add("confirmado");
 
@@ -160,6 +159,8 @@ function exibirProdutos(produtos) {
     listaProdutosEl.appendChild(card);
   });
 }
+
+// --- LÓGICA DE FILTROS E BUSCA ---
 const botoesFiltro = document.querySelectorAll(".filter-pills .btn-pill");
 const inputBusca = document.getElementById("searchInput");
  
@@ -171,11 +172,8 @@ function aplicarFiltros() {
   const cards = listaProdutosEl.querySelectorAll(".card-produto");
  
   cards.forEach(function (card) {
-    const bateCategoria =
-      categoriaAtual === "TODOS" || card.dataset.categoria === categoriaAtual;
- 
-    const bateBusca =
-      textoBuscaAtual === "" || card.dataset.nome.includes(textoBuscaAtual);
+    const bateCategoria = categoriaAtual === "TODOS" || card.dataset.categoria === categoriaAtual;
+    const bateBusca = textoBuscaAtual === "" || card.dataset.nome.includes(textoBuscaAtual);
  
     card.style.display = bateCategoria && bateBusca ? "" : "none";
   });
@@ -185,18 +183,27 @@ botoesFiltro.forEach(function (botao) {
   botao.addEventListener("click", function () {
     categoriaAtual = botao.dataset.categoria;
  
+    // 1. Remove a classe active de todos
     botoesFiltro.forEach(function (b) {
       b.classList.remove("active");
-    })
+    });
 
-  })
+    // 2. Adiciona a classe active no botão que foi clicado (FALTAVA ISSO)
+    botao.classList.add("active");
+
+    // 3. Aplica os filtros para esconder/mostrar os cards (FALTAVA ISSO)
+    aplicarFiltros();
+  });
 });
  
-inputBusca.addEventListener("input", function () {
-  textoBuscaAtual = inputBusca.value.trim().toLowerCase();
-  aplicarFiltros();
-});
+if (inputBusca) {
+  inputBusca.addEventListener("input", function () {
+    textoBuscaAtual = inputBusca.value.trim().toLowerCase();
+    aplicarFiltros();
+  });
+}
 
+// --- MENU MOBILE ---
 const menuToggle = document.getElementById("menuToggle");
 const menubar = document.getElementById("menubar");
  
@@ -218,4 +225,5 @@ if (menuToggle && menubar) {
   });
 }
 
+// Inicializa a página carregando os produtos
 carregarProdutos();

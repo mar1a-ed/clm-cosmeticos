@@ -2,19 +2,21 @@ document.addEventListener('DOMContentLoaded', carregarCarrinho);
 
 function carregarCarrinho() {
     const container = document.getElementById('container-produtos'); 
+    
+    const subtotalElement = document.getElementById('valor-subtotal'); 
     const totalElement = document.getElementById('valor-total'); 
     
     let carrinho = JSON.parse(localStorage.getItem('carrinhoEcommerce')) || [];
 
     if (carrinho.length === 0) {
         container.innerHTML = '<p style="text-align:center;">Seu carrinho está vazio.</p>';
+        if (subtotalElement) subtotalElement.innerText = 'R$ 0,00';
         if (totalElement) totalElement.innerText = 'R$ 0,00';
         return;
     }
 
-    let htmlCarrinho = '';
+    let htmlCarrinho = ''; 
     let valorTotalPedido = 0;
-
     carrinho.forEach(item => {
         const subtotal = item.preco * item.quantidade;
         valorTotalPedido += subtotal;
@@ -44,30 +46,33 @@ function carregarCarrinho() {
 
     container.innerHTML = htmlCarrinho;
     
+    const valorFrete = 15.99; 
+    const totalComFrete = valorTotalPedido + valorFrete; 
+
+    if (subtotalElement) {
+        subtotalElement.innerText = `R$ ${valorTotalPedido.toFixed(2).replace('.', ',')}`;
+    }
+    
     if (totalElement) {
-        totalElement.innerText = `R$ ${valorTotalPedido.toFixed(2).replace('.', ',')}`;
+        totalElement.innerText = `R$ ${totalComFrete.toFixed(2).replace('.', ',')}`;
     }
 }
 
 function alterarQuantidade(idProduto, mudanca) {
     let carrinho = JSON.parse(localStorage.getItem('carrinhoEcommerce')) || [];
     
-    // Busca o produto dentro do array do carrinho
     let produto = carrinho.find(item => item.id === idProduto);
     
     if (produto) {
-        produto.quantidade += mudanca; // Soma ou subtrai
+        produto.quantidade += mudanca; 
         
-        // Se a quantidade chegar a zero, removemos o produto da lista
         if (produto.quantidade <= 0) {
             carrinho = carrinho.filter(item => item.id !== idProduto);
         }
     }
     
-    // Salva o carrinho atualizado no navegador
     localStorage.setItem('carrinhoEcommerce', JSON.stringify(carrinho));
     
-    // Recarrega a tela para atualizar os números instantaneamente!
     carregarCarrinho();
 }
 
@@ -93,29 +98,5 @@ function finalizarCompra(){
         return;
     }
 
-    const dadosPedido = {
-        userEmail: userLogado.email,
-        itens: carrinho.map(item => ({produtoId: item.id, qtd: item.quantidade}))
-    };
-
-    fetch('http://localhost:8080/carrinhos/finalizar-compra',{
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(dadosPedido)
-    })
-    .then(async(response) =>{
-        if(response.ok){
-            alert("Compra finalizada com sucesso!");
-            localStorage.removeItem('carrinhoEcommerce');
-            window.location.href = '../inicio/inicio.html';
-        }else{
-            const erro = await response.text();
-            alert(erro);
-        }
-    })
-    .catch(error =>{
-        console.error('Erro: ',error);
-        alert("Erro de conexão com servidor.");
-    })
+    window.location.href = '../pagar/pagar.html'; 
 }
-

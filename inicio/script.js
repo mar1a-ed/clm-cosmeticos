@@ -36,3 +36,43 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 });
 
+const formContato = document.getElementById('contact-form');
+
+formContato.addEventListener('submit', function(event){
+    event.preventDefault();
+
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const assunto = document.getElementById('assunto').value;
+    const mensagem = document.getElementById('mensagem').value;
+
+    const dadosContato = {
+        Nome: nome,
+        Email: email,
+        Assunto: assunto,
+        Mensagem: mensagem
+    };
+
+    const urlFormspree = 'https://formspree.io/f/mjgnjrdb';
+
+    fetch(urlFormspree, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(dadosContato)
+    })
+    .then(response =>{
+        if(response.ok){
+            alert("A CLM-Cosmetics agradece o contato. Mensagem enviada com sucesso! Retornaremos em breve no seu e-mail.");
+            formContato.reset();
+        }else{
+            alert("Erro ao enviar a mensagem. Verifique os dados e tente novamente.");
+        }
+    })
+    .catch(error =>{
+        console.error("Erro: ", error);
+        alert("Erro de conexão com servidor. Tente novamente mais tarde.");
+    })
+
+});

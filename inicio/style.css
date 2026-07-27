@@ -220,7 +220,13 @@ h1, h2, h3{
     animation: float 3s ease-in-out infinite;
 }
 
-
+.dropdown-menu-logado{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
 
 .carrossel{
     width: 100%;
@@ -520,7 +526,6 @@ h1{
     margin-bottom: 15px;
 }
 
-/* Estatisticas */
 .stats{
     display: flex;
     gap: 50px;
@@ -539,7 +544,7 @@ h1{
     color: #555;
 }
 
-/* animacao que faz a imagem ir pra cima e pra baixo */
+/*img pra cima e pra baixo (flutuando)*/
 @keyframes float{
     0%{
         transform: translateY(0);
@@ -702,6 +707,3 @@ h1{
         padding: 30px;
     }
 }
-
-
-

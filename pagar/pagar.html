@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="icon" type="image/x-icon" href="../favicon/favicon.ico">
+</head>
+<body>
+    <div class="checkout-wrapper">
+    <div class="checkout-pagamento">
+        <h2>Pagamento</h2>
+        <p class="subtitulo">Escolha como deseja pagar seu pedido</p>
+
+        <div class="opcoes-pagamento">
+            <label class="opcao-radio ativo" id="label-cartao">
+                <input type="radio" name="tipoPagamento" value="cartao" checked>
+                💳 Cartão de Crédito
+            </label>
+            <label class="opcao-radio" id="label-pix">
+                <input type="radio" name="tipoPagamento" value="pix">
+                💠 PIX
+            </label>
+        </div>
+
+        <form id="form-cartao" class="form-grid">
+            <div class="input-group span-2">
+                <label for="numeroCartao">Número do Cartão</label>
+                <input type="text" id="numeroCartao" placeholder="0000 0000 0000 0000" maxlength="19" required>
+            </div>
+            
+            <div class="input-group span-2">
+                <label for="nomeCartao">Nome Impresso no Cartão</label>
+                <input type="text" id="nomeCartao" placeholder="MARIA D SILVA" required>
+            </div>
+
+            <div class="input-group">
+                <label for="validadeCartao">Validade</label>
+                <input type="text" id="validadeCartao" placeholder="MM/AA" maxlength="5" required>
+            </div>
+
+            <div class="input-group">
+                <label for="cvvCartao">CVV</label>
+                <input type="text" id="cvvCartao" placeholder="123" maxlength="4" required>
+            </div>
+        </form>
+
+        <div id="area-pix" class="area-pix" style="display: none;">
+            <img src="../imgs/pix-maria.jpg" style="width: 150px;" alt="QR Code PIX">
+            <p>Escaneie o QR Code com o app do seu banco ou copie o código abaixo:</p>
+            <button type="button" class="btn-secundario">Copiar Código PIX</button>
+        </div>
+    </div>
+
+    <div class="checkout-resumo">
+        <h2>Resumo do Pedido</h2>
+        
+        <div class="resumo-valores">
+            <div class="linha-resumo">
+                <span>Subtotal</span>
+                <span id="checkout-subtotal">R$ 0,00</span>
+            </div>
+            <div class="linha-resumo">
+                <span>Frete</span>
+                <span>R$ 15,99</span>
+            </div>
+            <hr class="divisor">
+            <div class="linha-resumo total-destaque">
+                <span>Total a Pagar</span>
+                <span id="checkout-total">R$ 0,00</span>
+            </div>
+        </div>
+
+        <button type="button" id="btn-confirmar-compra" class="btn-primario btn-block">
+            Confirmar Pagamento
+        </button>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+.checkout-wrapper{
+    display: flex;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto;
+    align-items: flex-start;
+}
+
+.checkout-pagamento{
+    flex: 3;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.checkout-resumo{
+    flex: 2;
+    background-color: #fafafa;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+}
+
+.subtitulo{
+    color: #777;
+    margin-top: -10px;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.opcoes-pagamento{
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.opcao-radio{
+    flex: 1;
+    border: 1px solid #d1d1d1;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.opcao-radio input{
+    display: none; 
+}
+
+.opcao-radio.ativo{
+    border-color: #2c2c2c;
+    background-color: #f9f9f9;
+}
+
+.area-pix{
+    text-align: center;
+    padding: 20px;
+}
+
+.area-pix img{
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.btn-secundario{
+    background-color: transparent;
+    color: #2c2c2c;
+    border: 1px solid #2c2c2c;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.linha-resumo{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: #555;
+}
+
+.total-destaque{
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.btn-block{
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 16px;
+}
+
+@media (max-width: 768px){
+    .checkout-wrapper{
+        flex-direction: column;
+    }
+}

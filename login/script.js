@@ -1,3 +1,14 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const hashDaUrl = window.location.hash;
+
+    if (hashDaUrl === '#form-cadastro') {
+        trocarAba('cadastro');
+    } 
+    else if (hashDaUrl === '#form-login') {
+        trocarAba('login');
+    }
+});
+
 function trocarAba(abaNome){
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     document.querySelectorAll('.form-section').forEach(form => form.classList.remove('active'));
@@ -10,9 +21,6 @@ function trocarAba(abaNome){
         document.getElementById('form-cadastro').classList.add('active');
     }
 }
-
-/*Banco de Dados*/
-//formulario para login
 
 const formCadastro = document.getElementById('form-cadastro-element');
 

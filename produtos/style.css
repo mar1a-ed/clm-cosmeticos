@@ -1,11 +1,4 @@
-/* =====================================================================
-   CLM Cosméticos — style.css (versão enxuta)
-   Mantidas apenas as regras de classes/IDs que existem no HTML ou são
-   criadas dinamicamente pelo script.js. Nenhuma classe "morta" (não
-   usada na página) foi mantida.
-   ===================================================================== */
 
- 
 :root {
   --nude:    #F2D4CC;
   --cream:   #FAFAF8;
@@ -51,7 +44,7 @@ h1, h2, h3 {
     position: relative;
     z-index: 10;
     border-bottom: 1px solid var(--line);
-    box-shadow: /*0px 8px 25px rgba(0, 0, 0, 0.2);*/ none;
+    box-shadow: none;
     font-family: 'Poppins', sans-serif;
 }
  
@@ -117,16 +110,38 @@ h1, h2, h3 {
   transform: translateY(-3px);
 }
  
-/* Botão hambúrguer: escondido por padrão (desktop).
-   Só aparece via media query em telas pequenas, abaixo. */
+/* ─── BOTÃO HAMBÚRGUER (UNIFICADO) ─── */
 .menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 26px;
-  color: #000;
-  cursor: pointer;
-  padding: 4px 8px;
+    display: none;  /* Escondido em telas grandes */
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    z-index: 30;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2.5px;
+    background-color: var(--ink);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Animação para virar X quando aberto */
+.menu-toggle.ativo span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.ativo span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.ativo span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
  
 /* ─── HERO ─── */
@@ -192,8 +207,6 @@ h1, h2, h3 {
   box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.15);
 }
  
-/* O navegador adiciona um "x" nativo em inputs type="search" com texto;
-   removemos para não conflitar com o ícone de lupa. */
 .search-input::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
@@ -275,7 +288,7 @@ main {
   margin-top: 20px;
 }
  
-/* ─── CARD DE PRODUTO (criado via JS) ─── */
+/* ─── CARD DE PRODUTO ─── */
 .card-produto {
   background-color: var(--card-bg);
   border-radius: 8px;
@@ -414,50 +427,106 @@ footer strong {
   color: var(--gold);
 }
  
-/* ─── NAVBAR RESPONSIVA ─── */
-/* Abaixo de 768px: esconde o menubar e mostra o botão hambúrguer.
-   Os estilos de cor/fonte/hover do .menubar e .menubar a continuam
-   os mesmos definidos acima — aqui só mudamos POSIÇÃO e VISIBILIDADE. */
+/* =====================================================================
+   RESPONSIVIDADE (UNIFICADA)
+   ===================================================================== */
+
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: inline-flex;
-    align-items: center;
-  }
- 
-  .menubar {
-    display: none;            /* escondido até o usuário abrir */
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    gap: 0;
-    background-color: #faede1; /* mesma cor de fundo da navbar */
-    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
-    padding: 10px 0;
-    z-index: 20;
-  }
- 
-  /* Classe alternada via JS quando o hambúrguer é clicado */
-  .menubar.aberto {
-    display: flex;
-  }
- 
-  .menubar a {
-    padding: 12px 40px;
-  }
- 
-  .iconLogo a {
-    margin-left: 0;
-  }
- 
-  .iconsPerfil {
-    margin-right: 0;
-  }
+    /* Mostra o botão hambúrguer */
+    .menu-toggle {
+        display: flex;
+        order: 2;
+    }
+    
+    /* Menu fica oculto por padrão */
+    .menubar {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background-color: var(--bg-base);
+        box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+        padding: 10px 0;
+        z-index: 20;
+        border-top: 1px solid var(--line);
+    }
+    
+    /* Menu aberto (classe adicionada via JS) */
+    .menubar.aberto {
+        display: flex;
+    }
+    
+    .menubar a {
+        padding: 14px 40px;
+        border-bottom: 1px solid var(--line);
+        width: 100%;
+    }
+    
+    .menubar a:last-child {
+        border-bottom: none;
+    }
+    
+    .menubar a::after {
+        display: none; /* Remove o underline animado no mobile */
+    }
+    
+    /* Ajusta a ordem dos elementos no header */
+    .navbar {
+        flex-wrap: wrap;
+        padding: 12px 20px;
+    }
+    
+    .iconLogo {
+        order: 1;
+    }
+    
+    .iconLogo a {
+        margin-left: 0;
+    }
+    
+    .iconsPerfil {
+        order: 3;
+        margin-right: 0;
+        gap: 15px;
+    }
+    
+    .iconsPerfil img {
+        width: 20px;
+    }
 }
- 
-/* ─── RESPONSIVO ─── */
+
 @media (max-width: 576px) {
-  .hero-section { padding: 2.5rem 0 1.8rem; }
-  .filter-pills { gap: 0.4rem; }
+    .hero-section { 
+        padding: 2.5rem 0 1.8rem; 
+    }
+    
+    .filter-pills { 
+        gap: 0.4rem; 
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+    
+    .iconLogo img {
+        height: 40px;
+    }
+    
+    .iconsPerfil {
+        gap: 12px;
+    }
+    
+    .iconsPerfil img {
+        width: 18px;
+    }
+    
+    .menu-toggle span {
+        width: 22px;
+        height: 2px;
+    }
 }

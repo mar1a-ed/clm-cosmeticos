@@ -39,6 +39,12 @@ a{
     text-decoration: none;
 }
 
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -127,6 +133,12 @@ a{
     padding: 0 20px;
 }
 
+.carrinho-itens{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .titulo-pagina{
     font-size: 32px;
     margin-top: 10px;
@@ -156,12 +168,14 @@ a{
     align-items: center;
     gap: 25px;
     flex: 2;
+    min-width: 0;
 }
 
 .item-info h4{
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     font-weight: 600;
+    word-break: break-word;
 }
 
 .item-info span{
@@ -246,7 +260,7 @@ a{
 .carrinho-resume h3{
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-    font-weight: 700px;
+    font-weight: 700;
     margin-bottom: 25px;
 }
 
@@ -295,12 +309,14 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
     background-color: #ffffff;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,.05);
     margin-bottom: 20px;
-    gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .card-carrinho img{
@@ -364,11 +380,13 @@ a{
     text-align: right;
 }
 
-.subtotal-produto p{
-    margin: 0;
-    font-weight: 600;
-    color: #333;
+.subtotal-produto{
+    flex: 1;
+    min-width: 120px;
+    text-align: right;
+    word-break: break-word;
 }
+
 
 .btn-remover{
     background: none;
@@ -377,18 +395,18 @@ a{
     font-size: 14px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;
     padding: 8px 12px;
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
 .btn-remover:hover{
     background-color: #ffeeee;
 }
 
-@media (max-width: 768px){
+@media (max-width:768px){
 
     .navbar{
         flex-direction: column;
@@ -397,9 +415,11 @@ a{
     }
 
     .menubar{
+        display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 15px;
+        row-gap: 10px;
     }
 
     .iconsPerfil{
@@ -407,33 +427,129 @@ a{
     }
 
     .carrinho-container{
-        flex-direction: column;
         padding: 20px;
     }
 
-    .carrinho-itens,
-    .carrinho-resume{
+    .carrinho-itens{
         width: 100%;
     }
 
     .carrinho-resume{
+        width: 100%;
+        margin-top: 20px;
         position: static;
     }
 
     .item-card{
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
         gap: 20px;
     }
 
     .item-info{
         width: 100%;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .item-preco{
+        width: 100%;
+        text-align: center;
     }
 
     .item-qtd{
         width: fit-content;
     }
 
+    .btn-remover{
+        width: 100%;
+        justify-content: center;
+    }
+
+}
+    
+@media (max-width:480px){
+
+    .navbar{
+        padding: 15px;
+    }
+
+    .iconLogo img{
+        height: 50px;
+    }
+
+    .menubar{
+        gap: 10px;
+        row-gap: 10px;
+    }
+
+    .menubar a{
+        font-size: 14px;
+    }
+
+    .iconsPerfil{
+        gap: 15px;
+    }
+
+    .iconsPerfil img{
+        width: 20px;
+    }
+
+    .titulo-pagina{
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    .item-card{
+        padding: 15px;
+    }
+
+    .img-produto{
+        width: 65px;
+        height: 65px;
+    }
+
+    .item-info h4{
+        font-size: 15px;
+    }
+
+    .item-info span{
+        font-size: 12px;
+    }
+
+    .item-preco{
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .carrinho-resume{
+        padding: 20px;
+    }
+
+    .resumo-row{
+        font-size: 14px;
+    }
+
+    .resumo-row-total{
+        font-size: 18px;
+    }
+
+    .btn-finalizar{
+        padding: 14px;
+        font-size: 15px;
+    }
+
+}
+
+.menubar a:focus{
+    outline: 2px solid var(--rose-deep);
+    outline-offset: 3px;
+}
+
+button:focus{
+    outline: 2px solid var(--rose-deep);
+    outline-offset: 3px;
 }

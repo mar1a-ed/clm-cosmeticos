@@ -5,16 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../favicon/favicon.ico">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../produtos/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
     <title>Perfil do Usuário</title>
 </head>
 <body>
-    <div class="iconLogo">
-        <a href="../inicio/inicio.html">
-            <img src="../imgs/clm_cosmeticos_logo.jpg" alt="iconLogo">
-        </a>
-    </div>
+    <!-- ===== HEADER PADRÃO ===== -->
+    <header class="navbar">
+        <div class="iconLogo">
+            <a href="../inicio/inicio.html">
+                <img src="../imgs/clm_cosmeticos_logo.jpg" alt="iconLogo" style="height: 50px;">
+            </a>
+        </div>
+        
+        <!-- BOTÃO HAMBÚRGUER -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <div class="menubar" id="menuNav">
+            <a href="../produtos/produtos.html">Produtos</a>
+            <a href="../acessorios/acessorios.html">Acessórios</a>
+            <a href="../kits/kits.html">Kits</a>
+        </div>
+        <div class="iconsPerfil">
+            <a href="../favoritos/favoritos.html"><img src="../imgs/coracao.png" class="img-icons"></a>
+            <a href="../perfil/perfil.html"><img src="../imgs/Sample_User_Icon.png" class="img-icons"></a>
+            <a href="../pedidos/meusPedidos.html"><img src="../imgs/5087784.png" class="img-icons"></a>
+        </div>
+    </header>
+
     <main class="perfil-section">
         <div class="perfil-container">
             <aside class="perfil-sidebar">
@@ -117,6 +140,11 @@
             </section>
         </div>
     </main>
+
+    <!-- ===== FOOTER PADRÃO ===== -->
+    <footer style="text-align: center; padding: 20px; margin-top: 40px;">
+        © 2026 <strong>CLM Cosméticos</strong> · Todos os direitos reservados
+    </footer>
   
     <script src="script.js"></script>
 </body>

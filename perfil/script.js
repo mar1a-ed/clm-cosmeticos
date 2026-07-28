@@ -1,4 +1,47 @@
+// ===== MENU HAMBÚRGUER =====
+function initMenuHamburger() {
+    const menuToggle = document.getElementById('menuToggle');
+    const menuNav = document.getElementById('menuNav');
+    
+    if (!menuToggle || !menuNav) {
+        // Se os elementos não existirem, tenta novamente depois
+        setTimeout(initMenuHamburger, 100);
+        return;
+    }
+    
+    // Abrir/fechar menu ao clicar no botão
+    menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menuNav.classList.toggle('aberto');
+        menuToggle.classList.toggle('ativo');
+    });
+    
+    // Fechar menu ao clicar em um link
+    document.querySelectorAll('.menubar a').forEach(link => {
+        link.addEventListener('click', function() {
+            menuNav.classList.remove('aberto');
+            menuToggle.classList.remove('ativo');
+        });
+    });
+    
+    // Fechar menu ao clicar fora dele
+    document.addEventListener('click', function(event) {
+        const isClickInsideMenu = menuNav.contains(event.target);
+        const isClickOnToggle = menuToggle.contains(event.target);
+        
+        if (!isClickInsideMenu && !isClickOnToggle && menuNav.classList.contains('aberto')) {
+            menuNav.classList.remove('aberto');
+            menuToggle.classList.remove('ativo');
+        }
+    });
+}
+
+// ===== INICIALIZAÇÃO DA PÁGINA =====
 document.addEventListener('DOMContentLoaded', function() {
+    // Inicializa o menu hambúrguer
+    initMenuHamburger();
+    
+    // ===== CARREGAR DADOS DO USUÁRIO =====
     const usuarioString = localStorage.getItem('userLogado');
 
     if (!usuarioString) {
@@ -24,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+// ===== FUNÇÕES DO PERFIL =====
 
 async function updateDadosUsuario(event){
     if(event){
@@ -65,7 +110,6 @@ async function updateDadosUsuario(event){
         console.log("Erro na requisição: ", error);
         alert("Erro de conexão com servidor.");
     }
-
 }
 
 async function atualizarSenha(event) {
@@ -121,4 +165,3 @@ function fazerLogout() {
     
     window.location.href = '../login/login-cadastro.html';
 }
-

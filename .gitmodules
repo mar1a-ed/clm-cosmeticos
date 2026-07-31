@@ -1,0 +1,3 @@
+[submodule "clm-cosmeticos"]
+	path = clm-cosmeticos
+	url = https://github.com/caua-hub/clm-cosmedicos_back-end_JAVA.git

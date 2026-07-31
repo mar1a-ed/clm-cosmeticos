@@ -2,4 +2,7 @@
 #### Stacks Utilizadas
 - HTML 5,
 - CSS,
-- JavScript.
+- JavaScript,
+- Bootstrap,
+- Java 17,
+- Spring Boot 4.
